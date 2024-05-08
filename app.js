@@ -4,6 +4,9 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
+// other packages
+const morgan = require('morgan')
+
 // database
 const connectBD = require("./db/connect");
 
@@ -20,6 +23,7 @@ app.get("/", (req, res) => {
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
+app.use(morgan('tiny'))
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
