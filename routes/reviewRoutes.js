@@ -8,7 +8,7 @@ const {
   getSingleReview,
   updateReview,
   deleteReview,
-} = require("../controllers/reviewsController");
+} = require("../controllers/reviewController");
 
 router.route("/").post(authenticateUser, createReview).get(getAllReviews);
 
