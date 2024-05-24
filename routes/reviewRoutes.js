@@ -8,6 +8,7 @@ const {
   getSingleReview,
   updateReview,
   deleteReview,
+  getSingleProductReviews
 } = require("../controllers/reviewController");
 
 router.route("/").post(authenticateUser, createReview).get(getAllReviews);
@@ -17,5 +18,7 @@ router
   .get(getSingleReview)
   .put(authenticateUser, updateReview)
   .delete(authenticateUser, deleteReview);
+
+router.route("/:id/reviews").get(getSingleProductReviews);
 
 module.exports = router
