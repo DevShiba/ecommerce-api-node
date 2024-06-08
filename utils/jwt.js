@@ -9,7 +9,7 @@ const createJWT = ({ payload }) => {
 
 const isTokenValid = ({ token }) => jwt.verify(token, process.env.JWT_SECRET);
 
-const attachCookieToResponse = ({res,user})=>{
+const attachCookiesToResponse = ({res,user})=>{
   const token = createJWT({payload: user});
 
     const oneDay = 1000 * 60 * 60 * 24	
@@ -22,4 +22,4 @@ const attachCookieToResponse = ({res,user})=>{
   })
 } 
 
-module.exports = { createJWT, isTokenValid, attachCookieToResponse };
+module.exports = { createJWT, isTokenValid, attachCookiesToResponse };
